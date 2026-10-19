@@ -182,7 +182,7 @@ function seedOtwImports(){
   try{localStorage.setItem(STORAGE_KEY,JSON.stringify(records));}catch(e){console.error('Could not persist manifest rows',e)}
   return {added,updated};
 }
-function init(){load();try{const seedResult=seedOtwImports();console.info('OTW import manifest loaded',seedResult)}catch(e){console.error('Could not seed default import containers',e)}try{setupPortOptions();let todayVal=today();$('eta').min=todayVal;let u=localStorage.getItem('bennatex_supabase_url'),k=localStorage.getItem('bennatex_supabase_key');if(u)$('supabaseUrl').value=u;if(k)$('supabaseKey').value=k}catch(e){console.warn('Optional startup setup failed',e)}try{render()}catch(e){console.error('Render error',e);$('empty').classList.remove('hidden');$('empty').textContent='Could not display containers. Please refresh this page.'}}
+function init(){load();try{const seedResult=seedOtwImports();console.info('OTW import manifest loaded',seedResult)}catch(e){console.error('Could not seed default import containers',e)}try{setupPortOptions();let todayVal=today();$('eta').removeAttribute('min');let u=localStorage.getItem('bennatex_supabase_url'),k=localStorage.getItem('bennatex_supabase_key');if(u)$('supabaseUrl').value=u;if(k)$('supabaseKey').value=k}catch(e){console.warn('Optional startup setup failed',e)}try{render()}catch(e){console.error('Render error',e);$('empty').classList.remove('hidden');$('empty').textContent='Could not display containers. Please refresh this page.'}}
 init();
 </script>
 </body></html>
